@@ -1,0 +1,52 @@
+{
+  "stats": { "expected": 1, "unexpected": 1, "flaky": 1, "skipped": 0 },
+  "suites": [
+    {
+      "title": "e2e/articles.spec.ts",
+      "specs": [
+        {
+          "title": "reader opens an article",
+          "file": "e2e/articles.spec.ts",
+          "line": 4,
+          "tests": [{ "projectName": "chromium", "status": "expected", "results": [{ "status": "passed", "errors": [] }] }]
+        }
+      ],
+      "suites": [
+        {
+          "title": "comments",
+          "specs": [
+            {
+              "title": "posts a comment",
+              "file": "e2e/articles.spec.ts",
+              "line": 12,
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "status": "unexpected",
+                  "results": [
+                    { "status": "failed", "errors": [{ "message": "\u001b[2mexpect(\u001b[22mlocator\u001b[2m).toHaveText()\u001b[22m failed\n\nLocator: comments" }] }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "deletes a comment",
+              "file": "e2e/articles.spec.ts",
+              "line": 20,
+              "tests": [
+                {
+                  "projectName": "firefox",
+                  "status": "flaky",
+                  "results": [
+                    { "status": "failed", "errors": [{ "message": "TimeoutError: locator.click: Timeout 5000ms exceeded." }] },
+                    { "status": "passed", "errors": [] }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
