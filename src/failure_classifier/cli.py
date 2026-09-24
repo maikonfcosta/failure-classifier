@@ -46,6 +46,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             fh.write(table + "\n")
     if args.json_out:
         args.json_out.write_text(json.dumps([to_json(f, v) for f, v in results], indent=1), encoding="utf-8")
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        for line in workflow_commands(results, fail_on):
+            print(line)
 
     # A run that tested nothing is not a green run, whatever the categories say.
     if report.errors or report.ran == 0:
@@ -80,6 +83,19 @@ def render(report: Report, results: list[tuple[Failure, Verdict]], healthy: bool
         cells = [verdict.category, verdict.confidence, title, verdict.reason, _first_line(failure)]
         lines.append("| " + " | ".join(str(c).replace("|", "\\|") for c in cells) + " |")
     return "\n".join(lines)
+
+
+def workflow_commands(results: list[tuple[Failure, Verdict]], fail_on: set[Category]) -> list[str]:
+    """GitHub workflow commands, so each verdict shows up on the run page and the PR."""
+    lines = []
+    for failure, verdict in results:
+        blocking = failure.status == "unexpected" and verdict.category in fail_on
+        level = "error" if blocking else "warning"
+        title = f"{verdict.category} ({verdict.confidence}): {failure.title}"
+        # Workflow commands end at a newline and treat these characters as syntax.
+        message = verdict.reason.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        lines.append(f"::{level} title={title.replace(',', '%2C').replace(':', '%3A')}::{message}")
+    return lines
 
 
 def to_json(failure: Failure, verdict: Verdict) -> dict[str, object]:

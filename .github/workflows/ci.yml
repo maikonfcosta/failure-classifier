@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        python: ['3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy
+      - run: uv run pytest --cov
+
+  # Uses this repo as an action, the way other repos will, against the labeled dataset.
+  action:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      # Nothing listens on port 9, so the probe fails the way it would during a real outage.
+      - name: Outage confirmed by the health probe does not block
+        uses: ./
+        with:
+          report: dataset/api-down/report.json
+          health-url: http://localhost:9/
+
+      - name: Product bugs block
+        id: product
+        continue-on-error: true
+        uses: ./
+        with:
+          report: dataset/app-up/report.json
+
+      - name: The previous step must have failed
+        if: steps.product.outcome != 'failure'
+        run: |
+          echo "::error::product failures did not block"
+          exit 1

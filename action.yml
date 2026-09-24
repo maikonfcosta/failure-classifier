@@ -1,0 +1,52 @@
+name: failure-classifier
+description: Tells whether failed Playwright tests mean a product bug, an environment outage or an outdated test.
+author: Maikon Costa
+
+inputs:
+  report:
+    description: Path to the Playwright JSON report.
+    required: true
+  health-url:
+    description: URL probed right after the tests. A non-2xx answer or no answer means the environment was down.
+    required: false
+    default: ''
+  fail-on:
+    description: Comma-separated categories that fail the step. Empty string never fails.
+    required: false
+    default: product,unknown
+
+outputs:
+  verdicts:
+    description: Path to the JSON file with one verdict per failed or flaky test.
+    value: ${{ steps.classify.outputs.verdicts }}
+
+runs:
+  using: composite
+  steps:
+    - uses: astral-sh/setup-uv@v10
+      with:
+        python-version: '3.12'
+
+    - name: Probe the app
+      if: inputs.health-url != ''
+      shell: bash
+      env:
+        HEALTH_URL: ${{ inputs.health-url }}
+      run: |
+        status=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$HEALTH_URL" || true)
+        ok=false; [[ "$status" =~ ^2 ]] && ok=true
+        printf '{"url": "%s", "ok": %s, "status": "%s"}\n' "$HEALTH_URL" "$ok" "$status" > "$RUNNER_TEMP/health.json"
+        echo "health probe: $HEALTH_URL -> $status"
+
+    - name: Classify failures
+      id: classify
+      shell: bash
+      env:
+        REPORT: ${{ inputs.report }}
+        FAIL_ON: ${{ inputs.fail-on }}
+        HAS_PROBE: ${{ inputs.health-url != '' }}
+      run: |
+        args=("$REPORT" --json "$RUNNER_TEMP/verdicts.json" --fail-on "$FAIL_ON")
+        [[ "$HAS_PROBE" == "true" ]] && args+=(--health "$RUNNER_TEMP/health.json")
+        echo "verdicts=$RUNNER_TEMP/verdicts.json" >> "$GITHUB_OUTPUT"
+        uvx --from "$GITHUB_ACTION_PATH" failure-classifier "${args[@]}"

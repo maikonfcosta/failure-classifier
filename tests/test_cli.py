@@ -129,3 +129,16 @@ def test_bad_health_probe_exits_2(tmp_path: Path, capsys: pytest.CaptureFixture[
 
 def test_unknown_fail_on_category_exits_2() -> None:
     assert main([str(MINIMAL), "--fail-on", "product,flaky"]) == 2
+
+
+def test_on_github_actions_each_verdict_becomes_an_annotation(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+
+    main([str(MINIMAL)])
+
+    lines = [line for line in capsys.readouterr().out.splitlines() if line.startswith("::")]
+    assert lines[0].startswith("::error title=product (low)%3A comments > posts a comment::")
+    # Flaky tests never block, so they are warnings even when their category would.
+    assert lines[1].startswith("::warning title=test (low)%3A comments > deletes a comment::")
