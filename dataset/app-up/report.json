@@ -1,0 +1,1107 @@
+{
+ "config": {
+  "argv": [
+   "C:\\Program Files\\nodejs\\node.exe",
+   "<suite>\\node_modules\\@playwright\\test\\cli.js",
+   "test",
+   "tests/e2e/dataset",
+   "--project=chromium",
+   "--retries=0",
+   "--reporter=json"
+  ],
+  "configFile": "<suite>\\playwright.config.ts",
+  "rootDir": "<suite>/tests",
+  "failOnFlakyTests": false,
+  "forbidOnly": false,
+  "fullyParallel": true,
+  "globalSetup": null,
+  "globalTeardown": null,
+  "globalTimeout": 0,
+  "grep": {},
+  "grepInvert": null,
+  "maxFailures": 0,
+  "metadata": {
+   "actualWorkers": 8
+  },
+  "preserveOutput": "always",
+  "projects": [
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "setup",
+    "name": "setup",
+    "testDir": "<suite>/tests",
+    "testIgnore": [],
+    "testMatch": [
+     "/auth\\.setup\\.ts/"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "api",
+    "name": "api",
+    "testDir": "<suite>/tests/api",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "chromium",
+    "name": "chromium",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "firefox",
+    "name": "firefox",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "webkit",
+    "name": "webkit",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   }
+  ],
+  "quiet": false,
+  "reporter": [
+   [
+    "json"
+   ]
+  ],
+  "reportSlowTests": {
+   "max": 5,
+   "threshold": 300000
+  },
+  "shard": null,
+  "tags": [],
+  "updateSnapshots": "missing",
+  "updateSourceMethod": "patch",
+  "version": "1.63.0",
+  "workers": 8,
+  "webServer": null
+ },
+ "suites": [
+  {
+   "title": "auth.setup.ts",
+   "file": "auth.setup.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "create session for e2e user",
+     "ok": true,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "setup",
+       "projectName": "setup",
+       "results": [
+        {
+         "workerIndex": 0,
+         "parallelIndex": 0,
+         "status": "passed",
+         "duration": 283,
+         "errors": [],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:43.472Z",
+         "annotations": [],
+         "attachments": []
+        }
+       ],
+       "status": "expected"
+      }
+     ],
+     "id": "17e3fe6f4d9d8bd79c6b-62fe618903ee5b6dd248",
+     "file": "auth.setup.ts",
+     "line": 10,
+     "column": 1
+    }
+   ]
+  },
+  {
+   "title": "e2e\\dataset\\browser-env.spec.ts",
+   "file": "e2e/dataset/browser-env.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "env: API refuses connections while loading the feed",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 1,
+         "parallelIndex": 0,
+         "status": "failed",
+         "duration": 6613,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-article-preview').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-article-preview').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-article-preview').first()\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-article-preview').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-article-preview').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-article-preview').first()\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\browser-env.spec.ts:9:61",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+           "column": 61,
+           "line": 9
+          },
+          "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'app-article-preview'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n \u001b[90m 12 |\u001b[39m test(\u001b[32m'env: API times out while loading tags'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+            "column": 61,
+            "line": 9
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-article-preview').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('app-article-preview').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-article-preview').first()\u001b[22m\n\n\n   7 |   await page.goto('/');\n   8 |\n>  9 |   await expect(page.locator('app-article-preview').first()).toBeVisible({ timeout: 3_000 });\n     |                                                             ^\n  10 | });\n  11 |\n  12 | test('env: API times out while loading tags', async ({ page }) => {\n    at <suite>\\tests\\e2e\\dataset\\browser-env.spec.ts:9:61"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:45.988Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-AP-4a791-ions-while-loading-the-feed-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "network-errors",
+           "contentType": "application/json",
+           "body": "W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwL2FwaS9hcnRpY2xlcz9saW1pdD0xMCZvZmZzZXQ9MCIsImZhaWx1cmUiOiJuZXQ6OkVSUl9DT05ORUNUSU9OX1JFRlVTRUQifV0="
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-AP-4a791-ions-while-loading-the-feed-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-AP-4a791-ions-while-loading-the-feed-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+          "column": 61,
+          "line": 9
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "25402c63e9372c933f14-0195994732e265fead68",
+     "file": "e2e/dataset/browser-env.spec.ts",
+     "line": 4,
+     "column": 1
+    },
+    {
+     "title": "env: API times out while loading tags",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 2,
+         "parallelIndex": 1,
+         "status": "failed",
+         "duration": 5022,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sidebar .tag-pill').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.sidebar .tag-pill').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sidebar .tag-pill').first()\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sidebar .tag-pill').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.sidebar .tag-pill').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sidebar .tag-pill').first()\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\browser-env.spec.ts:17:60",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+           "column": 60,
+           "line": 17
+          },
+          "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.sidebar .tag-pill'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 19 |\u001b[39m\n \u001b[90m 20 |\u001b[39m test(\u001b[32m'env: API answers 503 on the article page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m myApi }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+            "column": 60,
+            "line": 17
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sidebar .tag-pill').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.sidebar .tag-pill').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sidebar .tag-pill').first()\u001b[22m\n\n\n  15 |   await page.goto('/');\n  16 |\n> 17 |   await expect(page.locator('.sidebar .tag-pill').first()).toBeVisible({ timeout: 3_000 });\n     |                                                            ^\n  18 | });\n  19 |\n  20 | test('env: API answers 503 on the article page', async ({ page, myApi }) => {\n    at <suite>\\tests\\e2e\\dataset\\browser-env.spec.ts:17:60"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.019Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-API-times-out-while-loading-tags-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "network-errors",
+           "contentType": "application/json",
+           "body": "W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwL2FwaS90YWdzIiwiZmFpbHVyZSI6Im5ldDo6RVJSX1RJTUVEX09VVCJ9XQ=="
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-API-times-out-while-loading-tags-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-API-times-out-while-loading-tags-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+          "column": 60,
+          "line": 17
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "25402c63e9372c933f14-21bf4009e8329404f2bb",
+     "file": "e2e/dataset/browser-env.spec.ts",
+     "line": 12,
+     "column": 1
+    },
+    {
+     "title": "env: API answers 503 on the article page",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 3,
+         "parallelIndex": 2,
+         "status": "failed",
+         "duration": 5936,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected: \u001b[32m\"env 1790280167681\"\u001b[39m\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('heading', { level: 1 }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected: \u001b[32m\"env 1790280167681\"\u001b[39m\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('heading', { level: 1 }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\browser-env.spec.ts:26:57",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+           "column": 57,
+           "line": 26
+          },
+          "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/article/${article.slug}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { level\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m }))\u001b[33m.\u001b[39mtoHaveText(article\u001b[33m.\u001b[39mtitle\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+            "column": 57,
+            "line": 26
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected: \u001b[32m\"env 1790280167681\"\u001b[39m\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('heading', { level: 1 }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\n\n  24 |   await page.goto(`/article/${article.slug}`);\n  25 |\n> 26 |   await expect(page.getByRole('heading', { level: 1 })).toHaveText(article.title, { timeout: 3_000 });\n     |                                                         ^\n  27 | });\n  28 |\n    at <suite>\\tests\\e2e\\dataset\\browser-env.spec.ts:26:57"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.061Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-API-answers-503-on-the-article-page-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "network-errors",
+           "contentType": "application/json",
+           "body": "W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwL2FwaS9hcnRpY2xlcy9lbnYtMTc5MDI4MDE2NzY4MS1mNTU1ZDgxYiIsInN0YXR1cyI6NTAzfSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMC9hcGkvYXJ0aWNsZXMvZW52LTE3OTAyODAxNjc2ODEtZjU1NWQ4MWIvY29tbWVudHMiLCJmYWlsdXJlIjoibmV0OjpFUlJfQUJPUlRFRCJ9XQ=="
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-API-answers-503-on-the-article-page-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-browser-env-env-API-answers-503-on-the-article-page-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\browser-env.spec.ts",
+          "column": 57,
+          "line": 26
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "25402c63e9372c933f14-1309ffaa7d50ba779534",
+     "file": "e2e/dataset/browser-env.spec.ts",
+     "line": 20,
+     "column": 1
+    }
+   ]
+  },
+  {
+   "title": "e2e\\dataset\\drift.spec.ts",
+   "file": "e2e/dataset/drift.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "drift: clicks a button that was renamed",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 4,
+         "parallelIndex": 3,
+         "status": "failed",
+         "duration": 6436,
+         "error": {
+          "message": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Publish Now' })\u001b[22m\n",
+          "stack": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Publish Now' })\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:6:59",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+           "column": 59,
+           "line": 6
+          },
+          "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m test(\u001b[32m'drift: clicks a button that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/editor'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Publish Now'\u001b[39m })\u001b[33m.\u001b[39mclick({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m\n \u001b[90m 9 |\u001b[39m test(\u001b[32m'drift: fills a field whose placeholder changed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+            "column": 59,
+            "line": 6
+           },
+           "message": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Publish Now' })\u001b[22m\n\n\n  4 | test('drift: clicks a button that was renamed', async ({ page }) => {\n  5 |   await page.goto('/editor');\n> 6 |   await page.getByRole('button', { name: 'Publish Now' }).click({ timeout: 3_000 });\n    |                                                           ^\n  7 | });\n  8 |\n  9 | test('drift: fills a field whose placeholder changed', async ({ page }) => {\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:6:59"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.051Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-drift-drift-clicks-a-button-that-was-renamed-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-drift-drift-clicks-a-button-that-was-renamed-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-drift-drift-clicks-a-button-that-was-renamed-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+          "column": 59,
+          "line": 6
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "0df573440015f7d64451-14950bf1a835c3066143",
+     "file": "e2e/dataset/drift.spec.ts",
+     "line": 4,
+     "column": 1
+    },
+    {
+     "title": "drift: fills a field whose placeholder changed",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 5,
+         "parallelIndex": 4,
+         "status": "failed",
+         "duration": 5230,
+         "error": {
+          "message": "TimeoutError: locator.fill: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Title of the article')\u001b[22m\n",
+          "stack": "TimeoutError: locator.fill: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Title of the article')\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:11:55",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+           "column": 55,
+           "line": 11
+          },
+          "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m test(\u001b[32m'drift: fills a field whose placeholder changed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/editor'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByPlaceholder(\u001b[32m'Title of the article'\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'x'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m\n \u001b[90m 14 |\u001b[39m test(\u001b[32m'drift: follows a nav link that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+            "column": 55,
+            "line": 11
+           },
+           "message": "TimeoutError: locator.fill: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Title of the article')\u001b[22m\n\n\n   9 | test('drift: fills a field whose placeholder changed', async ({ page }) => {\n  10 |   await page.goto('/editor');\n> 11 |   await page.getByPlaceholder('Title of the article').fill('x', { timeout: 3_000 });\n     |                                                       ^\n  12 | });\n  13 |\n  14 | test('drift: follows a nav link that was renamed', async ({ page }) => {\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:11:55"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.142Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-drift-drift-fills-a-field-whose-placeholder-changed-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-drift-drift-fills-a-field-whose-placeholder-changed-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-drift-drift-fills-a-field-whose-placeholder-changed-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+          "column": 55,
+          "line": 11
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "0df573440015f7d64451-0ec846a8ccf071ec58c2",
+     "file": "e2e/dataset/drift.spec.ts",
+     "line": 9,
+     "column": 1
+    },
+    {
+     "title": "drift: follows a nav link that was renamed",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 6,
+         "parallelIndex": 5,
+         "status": "failed",
+         "duration": 6892,
+         "error": {
+          "message": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Write Article' })\u001b[22m\n",
+          "stack": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Write Article' })\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:16:59",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+           "column": 59,
+           "line": 16
+          },
+          "snippet": "\u001b[0m \u001b[90m 14 |\u001b[39m test(\u001b[32m'drift: follows a nav link that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 15 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Write Article'\u001b[39m })\u001b[33m.\u001b[39mclick({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 17 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m\n \u001b[90m 19 |\u001b[39m test(\u001b[32m'drift: checks for a heading that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+            "column": 59,
+            "line": 16
+           },
+           "message": "TimeoutError: locator.click: Timeout 3000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Write Article' })\u001b[22m\n\n\n  14 | test('drift: follows a nav link that was renamed', async ({ page }) => {\n  15 |   await page.goto('/');\n> 16 |   await page.getByRole('link', { name: 'Write Article' }).click({ timeout: 3_000 });\n     |                                                           ^\n  17 | });\n  18 |\n  19 | test('drift: checks for a heading that was renamed', async ({ page }) => {\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:16:59"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.076Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-drift-drift-follows-a-nav-link-that-was-renamed-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-drift-drift-follows-a-nav-link-that-was-renamed-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-drift-drift-follows-a-nav-link-that-was-renamed-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+          "column": 59,
+          "line": 16
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "0df573440015f7d64451-b26e95fe9d0500039bd0",
+     "file": "e2e/dataset/drift.spec.ts",
+     "line": 14,
+     "column": 1
+    },
+    {
+     "title": "drift: checks for a heading that was renamed",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 7,
+         "parallelIndex": 6,
+         "status": "failed",
+         "duration": 4396,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Account Settings' })\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Account Settings' }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Account Settings' })\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Account Settings' })\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Account Settings' }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Account Settings' })\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:21:73",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+           "column": 73,
+           "line": 21
+          },
+          "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m test(\u001b[32m'drift: checks for a heading that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/settings'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Account Settings'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m test(\u001b[32m'drift: waits for a sidebar title that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+            "column": 73,
+            "line": 21
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Account Settings' })\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Account Settings' }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Account Settings' })\u001b[22m\n\n\n  19 | test('drift: checks for a heading that was renamed', async ({ page }) => {\n  20 |   await page.goto('/settings');\n> 21 |   await expect(page.getByRole('heading', { name: 'Account Settings' })).toBeVisible({ timeout: 3_000 });\n     |                                                                         ^\n  22 | });\n  23 |\n  24 | test('drift: waits for a sidebar title that was renamed', async ({ page }) => {\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:21:73"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.170Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-drift-drift-checks-for-a-heading-that-was-renamed-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-drift-drift-checks-for-a-heading-that-was-renamed-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-drift-drift-checks-for-a-heading-that-was-renamed-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+          "column": 73,
+          "line": 21
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "0df573440015f7d64451-400d3d29b2488123ee0b",
+     "file": "e2e/dataset/drift.spec.ts",
+     "line": 19,
+     "column": 1
+    },
+    {
+     "title": "drift: waits for a sidebar title that was renamed",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 8,
+         "parallelIndex": 7,
+         "status": "failed",
+         "duration": 5254,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Trending Tags')\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Trending Tags') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Trending Tags')\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Trending Tags')\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Trending Tags') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Trending Tags')\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:26:49",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+           "column": 49,
+           "line": 26
+          },
+          "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m test(\u001b[32m'drift: waits for a sidebar title that was renamed'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 25 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Trending Tags'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+            "column": 49,
+            "line": 26
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Trending Tags')\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Trending Tags') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Trending Tags')\u001b[22m\n\n\n  24 | test('drift: waits for a sidebar title that was renamed', async ({ page }) => {\n  25 |   await page.goto('/');\n> 26 |   await expect(page.getByText('Trending Tags')).toBeVisible({ timeout: 3_000 });\n     |                                                 ^\n  27 | });\n  28 |\n    at <suite>\\tests\\e2e\\dataset\\drift.spec.ts:26:49"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:46.106Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-drift-drift-waits--8deb0-ebar-title-that-was-renamed-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-drift-drift-waits--8deb0-ebar-title-that-was-renamed-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-drift-drift-waits--8deb0-ebar-title-that-was-renamed-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\drift.spec.ts",
+          "column": 49,
+          "line": 26
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "0df573440015f7d64451-6d0743afacfc4477eff1",
+     "file": "e2e/dataset/drift.spec.ts",
+     "line": 24,
+     "column": 1
+    }
+   ]
+  },
+  {
+   "title": "e2e\\dataset\\product.spec.ts",
+   "file": "e2e/dataset/product.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "product: popular tags come back empty",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 9,
+         "parallelIndex": 6,
+         "status": "failed",
+         "duration": 4046,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sidebar .tag-pill').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.sidebar .tag-pill').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sidebar .tag-pill').first()\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sidebar .tag-pill').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.sidebar .tag-pill').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sidebar .tag-pill').first()\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:11:60",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+           "column": 60,
+           "line": 11
+          },
+          "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.sidebar .tag-pill'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m\n \u001b[90m 14 |\u001b[39m test(\u001b[32m'product: article title is saved with the wrong text'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m myApi }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+            "column": 60,
+            "line": 11
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sidebar .tag-pill').first()\nExpected: visible\nTimeout: 3000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.sidebar .tag-pill').first() with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sidebar .tag-pill').first()\u001b[22m\n\n\n   9 |   await page.goto('/');\n  10 |\n> 11 |   await expect(page.locator('.sidebar .tag-pill').first()).toBeVisible({ timeout: 3_000 });\n     |                                                            ^\n  12 | });\n  13 |\n  14 | test('product: article title is saved with the wrong text', async ({ page, myApi }) => {\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:11:60"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:53.230Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-product-product-popular-tags-come-back-empty-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-product-product-popular-tags-come-back-empty-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-product-product-popular-tags-come-back-empty-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+          "column": 60,
+          "line": 11
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "666c2d45168f688f077e-0ce3d3bece1e89223452",
+     "file": "e2e/dataset/product.spec.ts",
+     "line": 5,
+     "column": 1
+    },
+    {
+     "title": "product: article title is saved with the wrong text",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 10,
+         "parallelIndex": 1,
+         "status": "failed",
+         "duration": 4134,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('heading', { level: 1 })\nExpected: \u001b[32m\"R\u001b[7melease checklist db\u001b[27m08\u001b[7mb\u001b[27m967\"\u001b[39m\nReceived: \u001b[31m\"R\u001b[7mELEASE CHECKLIST DB\u001b[27m08\u001b[7mB\u001b[27m967\"\u001b[39m\nTimeout:  3000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('heading', { level: 1 }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    7 \u00d7 locator resolved to <h1>RELEASE CHECKLIST DB08B967</h1>\u001b[22m\n\u001b[2m      - unexpected value \"RELEASE CHECKLIST DB08B967\"\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('heading', { level: 1 })\nExpected: \u001b[32m\"R\u001b[7melease checklist db\u001b[27m08\u001b[7mb\u001b[27m967\"\u001b[39m\nReceived: \u001b[31m\"R\u001b[7mELEASE CHECKLIST DB\u001b[27m08\u001b[7mB\u001b[27m967\"\u001b[39m\nTimeout:  3000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('heading', { level: 1 }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    7 \u00d7 locator resolved to <h1>RELEASE CHECKLIST DB08B967</h1>\u001b[22m\n\u001b[2m      - unexpected value \"RELEASE CHECKLIST DB08B967\"\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:25:57",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+           "column": 57,
+           "line": 25
+          },
+          "snippet": "\u001b[0m \u001b[90m 23 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/article/${article.slug}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 24 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { level\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m }))\u001b[33m.\u001b[39mtoHaveText(article\u001b[33m.\u001b[39mtitle\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m\n \u001b[90m 28 |\u001b[39m test(\u001b[32m'product: article shows the wrong author'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m api\u001b[33m,\u001b[39m otherUser }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+            "column": 57,
+            "line": 25
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('heading', { level: 1 })\nExpected: \u001b[32m\"R\u001b[7melease checklist db\u001b[27m08\u001b[7mb\u001b[27m967\"\u001b[39m\nReceived: \u001b[31m\"R\u001b[7mELEASE CHECKLIST DB\u001b[27m08\u001b[7mB\u001b[27m967\"\u001b[39m\nTimeout:  3000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('heading', { level: 1 }) with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    7 \u00d7 locator resolved to <h1>RELEASE CHECKLIST DB08B967</h1>\u001b[22m\n\u001b[2m      - unexpected value \"RELEASE CHECKLIST DB08B967\"\u001b[22m\n\n\n  23 |   await page.goto(`/article/${article.slug}`);\n  24 |\n> 25 |   await expect(page.getByRole('heading', { level: 1 })).toHaveText(article.title, { timeout: 3_000 });\n     |                                                         ^\n  26 | });\n  27 |\n  28 | test('product: article shows the wrong author', async ({ page, api, otherUser }) => {\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:25:57"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:53.910Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-product-product-ar-57062-s-saved-with-the-wrong-text-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-product-product-ar-57062-s-saved-with-the-wrong-text-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-product-product-ar-57062-s-saved-with-the-wrong-text-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+          "column": 57,
+          "line": 25
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "666c2d45168f688f077e-966c22ebf06b76cca640",
+     "file": "e2e/dataset/product.spec.ts",
+     "line": 14,
+     "column": 1
+    },
+    {
+     "title": "product: article shows the wrong author",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 11,
+         "parallelIndex": 7,
+         "status": "failed",
+         "duration": 4329,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.banner .author')\nExpected: \u001b[32m\"other_2af6b77b\"\u001b[39m\nReceived: \u001b[31m\" someone-else \"\u001b[39m\nTimeout:  3000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.banner .author') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.banner .author')\u001b[22m\n\u001b[2m    8 \u00d7 locator resolved to <a class=\"author\" href=\"/profile/someone-else\"> someone-else </a>\u001b[22m\n\u001b[2m      - unexpected value \" someone-else \"\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.banner .author')\nExpected: \u001b[32m\"other_2af6b77b\"\u001b[39m\nReceived: \u001b[31m\" someone-else \"\u001b[39m\nTimeout:  3000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.banner .author') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.banner .author')\u001b[22m\n\u001b[2m    8 \u00d7 locator resolved to <a class=\"author\" href=\"/profile/someone-else\"> someone-else </a>\u001b[22m\n\u001b[2m      - unexpected value \" someone-else \"\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:39:49",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+           "column": 49,
+           "line": 39
+          },
+          "snippet": "\u001b[0m \u001b[90m 37 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/article/${article.slug}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.banner .author'\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(otherUser\u001b[33m.\u001b[39musername\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 40 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 41 |\u001b[39m\n \u001b[90m 42 |\u001b[39m test(\u001b[32m'product: new comment disappears after posting'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m api\u001b[33m,\u001b[39m otherUser }) \u001b[33m=>\u001b[39m {\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+            "column": 49,
+            "line": 39
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.banner .author')\nExpected: \u001b[32m\"other_2af6b77b\"\u001b[39m\nReceived: \u001b[31m\" someone-else \"\u001b[39m\nTimeout:  3000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.banner .author') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('.banner .author')\u001b[22m\n\u001b[2m    8 \u00d7 locator resolved to <a class=\"author\" href=\"/profile/someone-else\"> someone-else </a>\u001b[22m\n\u001b[2m      - unexpected value \" someone-else \"\u001b[22m\n\n\n  37 |   await page.goto(`/article/${article.slug}`);\n  38 |\n> 39 |   await expect(page.locator('.banner .author')).toHaveText(otherUser.username, { timeout: 3_000 });\n     |                                                 ^\n  40 | });\n  41 |\n  42 | test('product: new comment disappears after posting', async ({ page, api, otherUser }) => {\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:39:49"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:54.455Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-product-product-article-shows-the-wrong-author-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-product-product-article-shows-the-wrong-author-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-product-product-article-shows-the-wrong-author-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+          "column": 49,
+          "line": 39
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "666c2d45168f688f077e-feb1335aa13dafc11e00",
+     "file": "e2e/dataset/product.spec.ts",
+     "line": 28,
+     "column": 1
+    },
+    {
+     "title": "product: new comment disappears after posting",
+     "ok": false,
+     "tags": [],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 12,
+         "parallelIndex": 4,
+         "status": "failed",
+         "duration": 4699,
+         "error": {
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-article-comment .card-text')\nTimeout: 3000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"dataset comment\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-article-comment .card-text') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-article-comment .card-text')\u001b[22m\n\u001b[2m    10 \u00d7 locator resolved to 0 elements\u001b[22m\n",
+          "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-article-comment .card-text')\nTimeout: 3000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"dataset comment\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-article-comment .card-text') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-article-comment .card-text')\u001b[22m\n\u001b[2m    10 \u00d7 locator resolved to 0 elements\u001b[22m\n\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:53:64",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+           "column": 64,
+           "line": 53
+          },
+          "snippet": "\u001b[0m \u001b[90m 51 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mreload()\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'app-article-comment .card-text'\u001b[39m))\u001b[33m.\u001b[39mtoHaveText([\u001b[32m'dataset comment'\u001b[39m]\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m3\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 55 |\u001b[39m\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+            "column": 64,
+            "line": 53
+           },
+           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('app-article-comment .card-text')\nTimeout: 3000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"dataset comment\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('app-article-comment .card-text') with timeout 3000ms\u001b[22m\n\u001b[2m  - waiting for locator('app-article-comment .card-text')\u001b[22m\n\u001b[2m    10 \u00d7 locator resolved to 0 elements\u001b[22m\n\n\n  51 |   await page.reload();\n  52 |\n> 53 |   await expect(page.locator('app-article-comment .card-text')).toHaveText(['dataset comment'], { timeout: 3_000 });\n     |                                                                ^\n  54 | });\n  55 |\n    at <suite>\\tests\\e2e\\dataset\\product.spec.ts:53:64"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:02:54.493Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\dataset-product-product-new-comment-disappears-after-posting-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\dataset-product-product-new-comment-disappears-after-posting-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\dataset-product-product-new-comment-disappears-after-posting-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\dataset\\product.spec.ts",
+          "column": 64,
+          "line": 53
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "666c2d45168f688f077e-e635371c429ff1375b96",
+     "file": "e2e/dataset/product.spec.ts",
+     "line": 42,
+     "column": 1
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "stats": {
+  "startTime": "2026-09-24T20:02:42.575Z",
+  "duration": 17193.071,
+  "expected": 1,
+  "skipped": 0,
+  "unexpected": 12,
+  "flaky": 0
+ }
+}

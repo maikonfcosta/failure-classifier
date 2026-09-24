@@ -1,0 +1,706 @@
+{
+ "config": {
+  "argv": [
+   "C:\\Program Files\\nodejs\\node.exe",
+   "<suite>\\node_modules\\@playwright\\test\\cli.js",
+   "test",
+   "tests/api/health.spec.ts",
+   "tests/api/auth.spec.ts",
+   "tests/e2e/home.spec.ts",
+   "tests/e2e/comment.spec.ts",
+   "--project=api",
+   "--project=chromium",
+   "--no-deps",
+   "--retries=0",
+   "--reporter=json"
+  ],
+  "configFile": "<suite>\\playwright.config.ts",
+  "rootDir": "<suite>/tests",
+  "failOnFlakyTests": false,
+  "forbidOnly": false,
+  "fullyParallel": true,
+  "globalSetup": null,
+  "globalTeardown": null,
+  "globalTimeout": 0,
+  "grep": {},
+  "grepInvert": null,
+  "maxFailures": 0,
+  "metadata": {
+   "actualWorkers": 8
+  },
+  "preserveOutput": "always",
+  "projects": [
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "setup",
+    "name": "setup",
+    "testDir": "<suite>/tests",
+    "testIgnore": [],
+    "testMatch": [
+     "/auth\\.setup\\.ts/"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "api",
+    "name": "api",
+    "testDir": "<suite>/tests/api",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "chromium",
+    "name": "chromium",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "firefox",
+    "name": "firefox",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 8
+    },
+    "id": "webkit",
+    "name": "webkit",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   }
+  ],
+  "quiet": false,
+  "reporter": [
+   [
+    "json"
+   ]
+  ],
+  "reportSlowTests": {
+   "max": 5,
+   "threshold": 300000
+  },
+  "shard": null,
+  "tags": [],
+  "updateSnapshots": "missing",
+  "updateSourceMethod": "patch",
+  "version": "1.63.0",
+  "workers": 8,
+  "webServer": null
+ },
+ "suites": [
+  {
+   "title": "api\\auth.spec.ts",
+   "file": "api/auth.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [],
+   "suites": [
+    {
+     "title": "auth contract",
+     "file": "api/auth.spec.ts",
+     "line": 4,
+     "column": 6,
+     "specs": [
+      {
+       "title": "write endpoints reject requests without a token",
+       "ok": false,
+       "tags": [
+        "critical"
+       ],
+       "tests": [
+        {
+         "timeout": 30000,
+         "annotations": [],
+         "expectedStatus": "passed",
+         "projectId": "api",
+         "projectName": "api",
+         "results": [
+          {
+           "workerIndex": 0,
+           "parallelIndex": 0,
+           "status": "timedOut",
+           "duration": 30055,
+           "error": {
+            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+            "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+           },
+           "errors": [
+            {
+             "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+            },
+            {
+             "location": {
+              "file": "<suite>\\src\\api\\conduit-api.ts",
+              "column": 25,
+              "line": 41
+             },
+             "message": "Error: apiRequestContext.post: Request context disposed.\nCall log:\n\u001b[2m  - \u2192 POST http://localhost:4200/api/articles\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.63.0 (x64; windows 10.0) node/24.5\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1OH0sImlhdCI6MTc5MDI4MDE2MywiZXhwIjoxNzk1NDY0MTYzfQ.WkVqA2rZZ1uKBLe9NdrW2No8BiqIi0iev2ZS1Mu5mkg\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 184\u001b[22m\n\n\n   at ..\\src\\api\\conduit-api.ts:41\n\n  39 |\n  40 |   createArticle(article: NewArticle): Promise<APIResponse> {\n> 41 |     return this.request.post('/api/articles', { data: { article }, headers: this.headers() });\n     |                         ^\n  42 |   }\n  43 |\n  44 |   async createArticleOk(article: NewArticle): Promise<Article> {\n    at ConduitApi.createArticle (<suite>\\src\\api\\conduit-api.ts:41:25)\n    at ConduitApi.createArticleOk (<suite>\\src\\api\\conduit-api.ts:45:28)\n    at <suite>\\tests\\api\\auth.spec.ts:6:33"
+            }
+           ],
+           "stdout": [],
+           "stderr": [],
+           "retry": 0,
+           "startTime": "2026-09-24T20:03:07.530Z",
+           "annotations": [],
+           "attachments": [
+            {
+             "name": "error-context",
+             "contentType": "text/markdown",
+             "path": "<suite>\\test-results\\auth-auth-contract-write-e-8323c-ct-requests-without-a-token-api\\error-context.md"
+            },
+            {
+             "name": "trace",
+             "contentType": "application/zip",
+             "path": "<suite>\\test-results\\auth-auth-contract-write-e-8323c-ct-requests-without-a-token-api\\trace.zip"
+            }
+           ]
+          }
+         ],
+         "status": "unexpected"
+        }
+       ],
+       "id": "d748ac400d08b85935ef-31a7cf49a5d3b94cbb41",
+       "file": "api/auth.spec.ts",
+       "line": 5,
+       "column": 3
+      },
+      {
+       "title": "an invalid token is rejected with a readable error",
+       "ok": false,
+       "tags": [
+        "critical"
+       ],
+       "tests": [
+        {
+         "timeout": 30000,
+         "annotations": [],
+         "expectedStatus": "passed",
+         "projectId": "api",
+         "projectName": "api",
+         "results": [
+          {
+           "workerIndex": 1,
+           "parallelIndex": 1,
+           "status": "timedOut",
+           "duration": 30036,
+           "error": {
+            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+            "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+           },
+           "errors": [
+            {
+             "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+            },
+            {
+             "location": {
+              "file": "<suite>\\src\\api\\conduit-api.ts",
+              "column": 25,
+              "line": 79
+             },
+             "message": "Error: apiRequestContext.get: Request context disposed.\nCall log:\n\u001b[2m  - \u2192 GET http://localhost:4200/api/user\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.63.0 (x64; windows 10.0) node/24.5\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - Authorization: Token not-a-real-token\u001b[22m\n\n\n   at ..\\src\\api\\conduit-api.ts:79\n\n  77 |\n  78 |   currentUser(): Promise<APIResponse> {\n> 79 |     return this.request.get('/api/user', { headers: this.headers() });\n     |                         ^\n  80 |   }\n  81 | }\n  82 |\n    at ConduitApi.currentUser (<suite>\\src\\api\\conduit-api.ts:79:25)\n    at <suite>\\tests\\api\\auth.spec.ts:19:50"
+            }
+           ],
+           "stdout": [],
+           "stderr": [],
+           "retry": 0,
+           "startTime": "2026-09-24T20:03:07.453Z",
+           "annotations": [],
+           "attachments": [
+            {
+             "name": "error-context",
+             "contentType": "text/markdown",
+             "path": "<suite>\\test-results\\auth-auth-contract-an-inva-c644c-ected-with-a-readable-error-api\\error-context.md"
+            },
+            {
+             "name": "trace",
+             "contentType": "application/zip",
+             "path": "<suite>\\test-results\\auth-auth-contract-an-inva-c644c-ected-with-a-readable-error-api\\trace.zip"
+            }
+           ]
+          }
+         ],
+         "status": "unexpected"
+        }
+       ],
+       "id": "d748ac400d08b85935ef-7ca48924842a9a7f98fe",
+       "file": "api/auth.spec.ts",
+       "line": 18,
+       "column": 3
+      },
+      {
+       "title": "sign up validates required fields",
+       "ok": false,
+       "tags": [
+        "critical"
+       ],
+       "tests": [
+        {
+         "timeout": 30000,
+         "annotations": [],
+         "expectedStatus": "passed",
+         "projectId": "api",
+         "projectName": "api",
+         "results": [
+          {
+           "workerIndex": 2,
+           "parallelIndex": 2,
+           "status": "timedOut",
+           "duration": 30056,
+           "error": {
+            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+            "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+           },
+           "errors": [
+            {
+             "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+            },
+            {
+             "location": {
+              "file": "<suite>\\src\\api\\conduit-api.ts",
+              "column": 25,
+              "line": 27
+             },
+             "message": "Error: apiRequestContext.post: Request context disposed.\nCall log:\n\u001b[2m  - \u2192 POST http://localhost:4200/api/users\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.63.0 (x64; windows 10.0) node/24.5\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 78\u001b[22m\n\n\n   at ..\\src\\api\\conduit-api.ts:27\n\n  25 |\n  26 |   register(user: NewUser): Promise<APIResponse> {\n> 27 |     return this.request.post('/api/users', { data: { user } });\n     |                         ^\n  28 |   }\n  29 |\n  30 |   async registerOk(user: NewUser): Promise<User> {\n    at ConduitApi.register (<suite>\\src\\api\\conduit-api.ts:27:25)\n    at <suite>\\tests\\api\\auth.spec.ts:28:27"
+            }
+           ],
+           "stdout": [],
+           "stderr": [],
+           "retry": 0,
+           "startTime": "2026-09-24T20:03:07.516Z",
+           "annotations": [],
+           "attachments": [
+            {
+             "name": "error-context",
+             "contentType": "text/markdown",
+             "path": "<suite>\\test-results\\auth-auth-contract-sign-up-validates-required-fields-api\\error-context.md"
+            },
+            {
+             "name": "trace",
+             "contentType": "application/zip",
+             "path": "<suite>\\test-results\\auth-auth-contract-sign-up-validates-required-fields-api\\trace.zip"
+            }
+           ]
+          }
+         ],
+         "status": "unexpected"
+        }
+       ],
+       "id": "d748ac400d08b85935ef-fa6e3a03bfef6bc629a2",
+       "file": "api/auth.spec.ts",
+       "line": 25,
+       "column": 3
+      },
+      {
+       "title": "sign up rejects an email or username already in use",
+       "ok": false,
+       "tags": [
+        "critical"
+       ],
+       "tests": [
+        {
+         "timeout": 30000,
+         "annotations": [],
+         "expectedStatus": "passed",
+         "projectId": "api",
+         "projectName": "api",
+         "results": [
+          {
+           "workerIndex": 3,
+           "parallelIndex": 3,
+           "status": "timedOut",
+           "duration": 30062,
+           "error": {
+            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+            "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+           },
+           "errors": [
+            {
+             "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+            },
+            {
+             "location": {
+              "file": "<suite>\\src\\api\\conduit-api.ts",
+              "column": 25,
+              "line": 27
+             },
+             "message": "Error: apiRequestContext.post: Request context disposed.\nCall log:\n\u001b[2m  - \u2192 POST http://localhost:4200/api/users\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.63.0 (x64; windows 10.0) node/24.5\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 96\u001b[22m\n\n\n   at ..\\src\\api\\conduit-api.ts:27\n\n  25 |\n  26 |   register(user: NewUser): Promise<APIResponse> {\n> 27 |     return this.request.post('/api/users', { data: { user } });\n     |                         ^\n  28 |   }\n  29 |\n  30 |   async registerOk(user: NewUser): Promise<User> {\n    at ConduitApi.register (<suite>\\src\\api\\conduit-api.ts:27:25)\n    at <suite>\\tests\\api\\auth.spec.ts:35:27"
+            }
+           ],
+           "stdout": [],
+           "stderr": [],
+           "retry": 0,
+           "startTime": "2026-09-24T20:03:07.572Z",
+           "annotations": [],
+           "attachments": [
+            {
+             "name": "error-context",
+             "contentType": "text/markdown",
+             "path": "<suite>\\test-results\\auth-auth-contract-sign-up-7f633--or-username-already-in-use-api\\error-context.md"
+            },
+            {
+             "name": "trace",
+             "contentType": "application/zip",
+             "path": "<suite>\\test-results\\auth-auth-contract-sign-up-7f633--or-username-already-in-use-api\\trace.zip"
+            }
+           ]
+          }
+         ],
+         "status": "unexpected"
+        }
+       ],
+       "id": "d748ac400d08b85935ef-445950513a08c453ca1d",
+       "file": "api/auth.spec.ts",
+       "line": 34,
+       "column": 3
+      },
+      {
+       "title": "wrong password does not reveal whether the email exists",
+       "ok": false,
+       "tags": [
+        "critical"
+       ],
+       "tests": [
+        {
+         "timeout": 30000,
+         "annotations": [],
+         "expectedStatus": "passed",
+         "projectId": "api",
+         "projectName": "api",
+         "results": [
+          {
+           "workerIndex": 4,
+           "parallelIndex": 4,
+           "status": "timedOut",
+           "duration": 30061,
+           "error": {
+            "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+            "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+           },
+           "errors": [
+            {
+             "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+            },
+            {
+             "location": {
+              "file": "<suite>\\src\\api\\conduit-api.ts",
+              "column": 25,
+              "line": 37
+             },
+             "message": "Error: apiRequestContext.post: Request context disposed.\nCall log:\n\u001b[2m  - \u2192 POST http://localhost:4200/api/users/login\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.63.0 (x64; windows 10.0) node/24.5\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 72\u001b[22m\n\n\n   at ..\\src\\api\\conduit-api.ts:37\n\n  35 |\n  36 |   login(email: string, password: string): Promise<APIResponse> {\n> 37 |     return this.request.post('/api/users/login', { data: { user: { email, password } } });\n     |                         ^\n  38 |   }\n  39 |\n  40 |   createArticle(article: NewArticle): Promise<APIResponse> {\n    at ConduitApi.login (<suite>\\src\\api\\conduit-api.ts:37:25)\n    at <suite>\\tests\\api\\auth.spec.ts:45:37"
+            }
+           ],
+           "stdout": [],
+           "stderr": [],
+           "retry": 0,
+           "startTime": "2026-09-24T20:03:07.590Z",
+           "annotations": [],
+           "attachments": [
+            {
+             "name": "error-context",
+             "contentType": "text/markdown",
+             "path": "<suite>\\test-results\\auth-auth-contract-wrong-p-1f172-al-whether-the-email-exists-api\\error-context.md"
+            },
+            {
+             "name": "trace",
+             "contentType": "application/zip",
+             "path": "<suite>\\test-results\\auth-auth-contract-wrong-p-1f172-al-whether-the-email-exists-api\\trace.zip"
+            }
+           ]
+          }
+         ],
+         "status": "unexpected"
+        }
+       ],
+       "id": "d748ac400d08b85935ef-d375cf08c31b32d8d27a",
+       "file": "api/auth.spec.ts",
+       "line": 44,
+       "column": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "api\\health.spec.ts",
+   "file": "api/health.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "API answers through the web proxy",
+     "ok": false,
+     "tags": [
+      "critical"
+     ],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "api",
+       "projectName": "api",
+       "results": [
+        {
+         "workerIndex": 5,
+         "parallelIndex": 5,
+         "status": "timedOut",
+         "duration": 30039,
+         "error": {
+          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+         },
+         "errors": [
+          {
+           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+          },
+          {
+           "location": {
+            "file": "<suite>\\tests\\api\\health.spec.ts",
+            "column": 34,
+            "line": 4
+           },
+           "message": "Error: apiRequestContext.get: Request context disposed.\nCall log:\n\u001b[2m  - \u2192 GET http://localhost:4200/api/tags\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.63.0 (x64; windows 10.0) node/24.5\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test('API answers through the web proxy', { tag: '@critical' }, async ({ request }) => {\n> 4 |   const response = await request.get('/api/tags');\n    |                                  ^\n  5 |\n  6 |   expect(response.status()).toBe(200);\n  7 |   expect(await response.json()).toHaveProperty('tags');\n    at <suite>\\tests\\api\\health.spec.ts:4:34"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:03:07.557Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\health-API-answers-through-the-web-proxy-api\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\health-API-answers-through-the-web-proxy-api\\trace.zip"
+          }
+         ]
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "760d72a3746ac5132f88-dd86fea7cc4ef9d55305",
+     "file": "api/health.spec.ts",
+     "line": 3,
+     "column": 1
+    }
+   ]
+  },
+  {
+   "title": "e2e\\comment.spec.ts",
+   "file": "e2e/comment.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "reader comments on an article and the comment survives a reload",
+     "ok": false,
+     "tags": [
+      "critical"
+     ],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 6,
+         "parallelIndex": 6,
+         "status": "failed",
+         "duration": 23085,
+         "error": {
+          "message": "Error: register failed: 502 <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.27.5</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n",
+          "stack": "Error: register failed: 502 <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.27.5</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n\n    at ConduitApi.registerOk (<suite>\\src\\api\\conduit-api.ts:32:26)\n    at Object.otherUser (<suite>\\tests\\fixtures.ts:38:18)",
+          "location": {
+           "file": "<suite>\\src\\api\\conduit-api.ts",
+           "column": 26,
+           "line": 32
+          },
+          "snippet": "\u001b[90m   at \u001b[39m..\\src\\api\\conduit-api.ts:32\n\n\u001b[0m \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m registerOk(user\u001b[33m:\u001b[39m \u001b[33mNewUser\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[33mUser\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 31 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mregister(user)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 32 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39mres\u001b[33m.\u001b[39mok()) \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`register failed: ${res.status()} ${await res.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[36mreturn\u001b[39m (\u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson())\u001b[33m.\u001b[39muser\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m   }\n \u001b[90m 35 |\u001b[39m\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\src\\api\\conduit-api.ts",
+            "column": 26,
+            "line": 32
+           },
+           "message": "Error: register failed: 502 <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.27.5</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n\n\n   at ..\\src\\api\\conduit-api.ts:32\n\n  30 |   async registerOk(user: NewUser): Promise<User> {\n  31 |     const res = await this.register(user);\n> 32 |     if (!res.ok()) throw new Error(`register failed: ${res.status()} ${await res.text()}`);\n     |                          ^\n  33 |     return (await res.json()).user;\n  34 |   }\n  35 |\n    at ConduitApi.registerOk (<suite>\\src\\api\\conduit-api.ts:32:26)\n    at Object.otherUser (<suite>\\tests\\fixtures.ts:38:18)"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:03:07.636Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\comment-reader-comments-on-c4b50-e-comment-survives-a-reload-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\comment-reader-comments-on-c4b50-e-comment-survives-a-reload-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\comment-reader-comments-on-c4b50-e-comment-survives-a-reload-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\src\\api\\conduit-api.ts",
+          "column": 26,
+          "line": 32
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "24a9704ceb90082c6795-c9142322a25f0e47f86d",
+     "file": "e2e/comment.spec.ts",
+     "line": 4,
+     "column": 1
+    }
+   ]
+  },
+  {
+   "title": "e2e\\home.spec.ts",
+   "file": "e2e/home.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "home page loads the global feed from our API",
+     "ok": false,
+     "tags": [
+      "critical"
+     ],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 7,
+         "parallelIndex": 7,
+         "status": "timedOut",
+         "duration": 30209,
+         "error": {
+          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+          "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+         },
+         "errors": [
+          {
+           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+          },
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\home.spec.ts",
+            "column": 25,
+            "line": 4
+           },
+           "message": "Error: page.waitForResponse: Test timeout of 30000ms exceeded.\n\n  2 |\n  3 | test('home page loads the global feed from our API', { tag: '@critical' }, async ({ page }) => {\n> 4 |   const articles = page.waitForResponse((res) => res.url().includes('/api/articles') && res.ok());\n    |                         ^\n  5 |\n  6 |   await page.goto('/');\n  7 |\n    at <suite>\\tests\\e2e\\home.spec.ts:4:25"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:03:07.589Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\home-home-page-loads-the-global-feed-from-our-API-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\home-home-page-loads-the-global-feed-from-our-API-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\home-home-page-loads-the-global-feed-from-our-API-chromium\\trace.zip"
+          }
+         ]
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "d318381359a9b96acb1e-03e2fb844bc78f67f366",
+     "file": "e2e/home.spec.ts",
+     "line": 3,
+     "column": 1
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "stats": {
+  "startTime": "2026-09-24T20:03:05.571Z",
+  "duration": 32652.379,
+  "expected": 0,
+  "skipped": 0,
+  "unexpected": 8,
+  "flaky": 0
+ }
+}

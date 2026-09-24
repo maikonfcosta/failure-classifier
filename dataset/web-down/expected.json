@@ -1,0 +1,4 @@
+{
+ "home page loads the global feed from our API": "environment",
+ "browser starts signed in with the session created by the API": "environment"
+}

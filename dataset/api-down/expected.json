@@ -1,0 +1,10 @@
+{
+ "write endpoints reject requests without a token": "environment",
+ "an invalid token is rejected with a readable error": "environment",
+ "sign up validates required fields": "environment",
+ "sign up rejects an email or username already in use": "environment",
+ "wrong password does not reveal whether the email exists": "environment",
+ "API answers through the web proxy": "environment",
+ "reader comments on an article and the comment survives a reload": "environment",
+ "home page loads the global feed from our API": "environment"
+}

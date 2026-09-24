@@ -1,0 +1,14 @@
+{
+ "env: API refuses connections while loading the feed": "environment",
+ "env: API times out while loading tags": "environment",
+ "env: API answers 503 on the article page": "environment",
+ "drift: clicks a button that was renamed": "test",
+ "drift: fills a field whose placeholder changed": "test",
+ "drift: follows a nav link that was renamed": "test",
+ "drift: checks for a heading that was renamed": "test",
+ "drift: waits for a sidebar title that was renamed": "test",
+ "product: popular tags come back empty": "product",
+ "product: article title is saved with the wrong text": "product",
+ "product: article shows the wrong author": "product",
+ "product: new comment disappears after posting": "product"
+}

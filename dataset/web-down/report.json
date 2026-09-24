@@ -1,0 +1,316 @@
+{
+ "config": {
+  "argv": [
+   "C:\\Program Files\\nodejs\\node.exe",
+   "<suite>\\node_modules\\@playwright\\test\\cli.js",
+   "test",
+   "tests/e2e/home.spec.ts",
+   "tests/e2e/session.spec.ts",
+   "--project=chromium",
+   "--no-deps",
+   "--retries=0",
+   "--reporter=json"
+  ],
+  "configFile": "<suite>\\playwright.config.ts",
+  "rootDir": "<suite>/tests",
+  "failOnFlakyTests": false,
+  "forbidOnly": false,
+  "fullyParallel": true,
+  "globalSetup": null,
+  "globalTeardown": null,
+  "globalTimeout": 0,
+  "grep": {},
+  "grepInvert": null,
+  "maxFailures": 0,
+  "metadata": {
+   "actualWorkers": 2
+  },
+  "preserveOutput": "always",
+  "projects": [
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 2
+    },
+    "id": "setup",
+    "name": "setup",
+    "testDir": "<suite>/tests",
+    "testIgnore": [],
+    "testMatch": [
+     "/auth\\.setup\\.ts/"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 2
+    },
+    "id": "api",
+    "name": "api",
+    "testDir": "<suite>/tests/api",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 2
+    },
+    "id": "chromium",
+    "name": "chromium",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 2
+    },
+    "id": "firefox",
+    "name": "firefox",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   },
+   {
+    "outputDir": "<suite>/test-results",
+    "repeatEach": 1,
+    "retries": 0,
+    "metadata": {
+     "actualWorkers": 2
+    },
+    "id": "webkit",
+    "name": "webkit",
+    "testDir": "<suite>/tests/e2e",
+    "testIgnore": [],
+    "testMatch": [
+     "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+    ],
+    "timeout": 30000
+   }
+  ],
+  "quiet": false,
+  "reporter": [
+   [
+    "json"
+   ]
+  ],
+  "reportSlowTests": {
+   "max": 5,
+   "threshold": 300000
+  },
+  "shard": null,
+  "tags": [],
+  "updateSnapshots": "missing",
+  "updateSourceMethod": "patch",
+  "version": "1.63.0",
+  "workers": 8,
+  "webServer": null
+ },
+ "suites": [
+  {
+   "title": "e2e\\home.spec.ts",
+   "file": "e2e/home.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "home page loads the global feed from our API",
+     "ok": false,
+     "tags": [
+      "critical"
+     ],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 0,
+         "parallelIndex": 0,
+         "status": "failed",
+         "duration": 424,
+         "error": {
+          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/\", waiting until \"load\"\u001b[22m\n",
+          "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/\", waiting until \"load\"\u001b[22m\n\n    at <suite>\\tests\\e2e\\home.spec.ts:6:14",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\home.spec.ts",
+           "column": 14,
+           "line": 6
+          },
+          "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m   \u001b[36mconst\u001b[39m articles \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((res) \u001b[33m=>\u001b[39m res\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/api/articles'\u001b[39m) \u001b[33m&&\u001b[39m res\u001b[33m.\u001b[39mok())\u001b[33m;\u001b[39m\n \u001b[90m 5 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m\n \u001b[90m 8 |\u001b[39m   \u001b[36mawait\u001b[39m articles\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'conduit'\u001b[39m })\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\home.spec.ts",
+            "column": 14,
+            "line": 6
+           },
+           "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/\", waiting until \"load\"\u001b[22m\n\n\n  4 |   const articles = page.waitForResponse((res) => res.url().includes('/api/articles') && res.ok());\n  5 |\n> 6 |   await page.goto('/');\n    |              ^\n  7 |\n  8 |   await articles;\n  9 |   await expect(page.getByRole('link', { name: 'conduit' }).first()).toBeVisible();\n    at <suite>\\tests\\e2e\\home.spec.ts:6:14"
+          },
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\home.spec.ts",
+            "column": 25,
+            "line": 4
+           },
+           "message": "Error: page.waitForResponse: Test ended.\n\n  2 |\n  3 | test('home page loads the global feed from our API', { tag: '@critical' }, async ({ page }) => {\n> 4 |   const articles = page.waitForResponse((res) => res.url().includes('/api/articles') && res.ok());\n    |                         ^\n  5 |\n  6 |   await page.goto('/');\n  7 |\n    at <suite>\\tests\\e2e\\home.spec.ts:4:25"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:03:45.510Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\home-home-page-loads-the-global-feed-from-our-API-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\home-home-page-loads-the-global-feed-from-our-API-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\home-home-page-loads-the-global-feed-from-our-API-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\home.spec.ts",
+          "column": 14,
+          "line": 6
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "d318381359a9b96acb1e-03e2fb844bc78f67f366",
+     "file": "e2e/home.spec.ts",
+     "line": 3,
+     "column": 1
+    }
+   ]
+  },
+  {
+   "title": "e2e\\session.spec.ts",
+   "file": "e2e/session.spec.ts",
+   "column": 0,
+   "line": 0,
+   "specs": [
+    {
+     "title": "browser starts signed in with the session created by the API",
+     "ok": false,
+     "tags": [
+      "critical"
+     ],
+     "tests": [
+      {
+       "timeout": 30000,
+       "annotations": [],
+       "expectedStatus": "passed",
+       "projectId": "chromium",
+       "projectName": "chromium",
+       "results": [
+        {
+         "workerIndex": 1,
+         "parallelIndex": 1,
+         "status": "failed",
+         "duration": 421,
+         "error": {
+          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/\", waiting until \"load\"\u001b[22m\n",
+          "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/\", waiting until \"load\"\u001b[22m\n\n    at <suite>\\tests\\e2e\\session.spec.ts:4:14",
+          "location": {
+           "file": "<suite>\\tests\\e2e\\session.spec.ts",
+           "column": 14,
+           "line": 4
+          },
+          "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test(\u001b[32m'browser starts signed in with the session created by the API'\u001b[39m\u001b[33m,\u001b[39m { tag\u001b[33m:\u001b[39m \u001b[32m'@critical'\u001b[39m }\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m me }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m\n \u001b[90m 6 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'New Article'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'app-layout-header'\u001b[39m)\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m me\u001b[33m.\u001b[39musername }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+         },
+         "errors": [
+          {
+           "location": {
+            "file": "<suite>\\tests\\e2e\\session.spec.ts",
+            "column": 14,
+            "line": 4
+           },
+           "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4200/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4200/\", waiting until \"load\"\u001b[22m\n\n\n  2 |\n  3 | test('browser starts signed in with the session created by the API', { tag: '@critical' }, async ({ page, me }) => {\n> 4 |   await page.goto('/');\n    |              ^\n  5 |\n  6 |   await expect(page.getByRole('link', { name: 'New Article' })).toBeVisible();\n  7 |   await expect(page.locator('app-layout-header').getByRole('link', { name: me.username })).toBeVisible();\n    at <suite>\\tests\\e2e\\session.spec.ts:4:14"
+          }
+         ],
+         "stdout": [],
+         "stderr": [],
+         "retry": 0,
+         "startTime": "2026-09-24T20:03:45.556Z",
+         "annotations": [],
+         "attachments": [
+          {
+           "name": "screenshot",
+           "contentType": "image/png",
+           "path": "<suite>\\test-results\\session-browser-starts-sig-8d088--session-created-by-the-API-chromium\\test-failed-1.png"
+          },
+          {
+           "name": "error-context",
+           "contentType": "text/markdown",
+           "path": "<suite>\\test-results\\session-browser-starts-sig-8d088--session-created-by-the-API-chromium\\error-context.md"
+          },
+          {
+           "name": "trace",
+           "contentType": "application/zip",
+           "path": "<suite>\\test-results\\session-browser-starts-sig-8d088--session-created-by-the-API-chromium\\trace.zip"
+          }
+         ],
+         "errorLocation": {
+          "file": "<suite>\\tests\\e2e\\session.spec.ts",
+          "column": 14,
+          "line": 4
+         }
+        }
+       ],
+       "status": "unexpected"
+      }
+     ],
+     "id": "6fa1842ca325e3ffbb00-d177fc34ba811f1dd2d8",
+     "file": "e2e/session.spec.ts",
+     "line": 3,
+     "column": 1
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "stats": {
+  "startTime": "2026-09-24T20:03:44.483Z",
+  "duration": 1760.442,
+  "expected": 0,
+  "skipped": 0,
+  "unexpected": 2,
+  "flaky": 0
+ }
+}
