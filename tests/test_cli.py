@@ -16,7 +16,7 @@ def test_product_failure_blocks_by_default(capsys: pytest.CaptureFixture[str]) -
 
     out = capsys.readouterr().out
     assert code == 1
-    assert "health probe: healthy" in out
+    assert "Health probe: healthy." in out
     assert "| product | high |" in out
 
 
@@ -52,9 +52,80 @@ def test_writes_json_and_github_summary(tmp_path: Path, monkeypatch: pytest.Monk
     assert summary.read_text(encoding="utf-8").startswith("## Failure classification")
 
 
-def test_empty_report_says_so(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
-    empty = tmp_path / "empty.json"
-    empty.write_text('{"suites": []}', encoding="utf-8")
+FIXTURES = Path(__file__).parent / "fixtures"
 
-    assert main([str(empty)]) == 0
+
+def test_run_with_no_tests_found_is_not_green(capsys: pytest.CaptureFixture[str]) -> None:
+    code = main([str(FIXTURES / "no-tests-report.json")])
+
+    assert code == 1
+    assert "The run itself failed:** Error: No tests found" in capsys.readouterr().out
+
+
+def test_empty_report_without_errors_is_not_green_either(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    empty = tmp_path / "empty.json"
+    empty.write_text('{"suites": [], "stats": {}}', encoding="utf-8")
+
+    assert main([str(empty)]) == 1
+    assert "No test ran" in capsys.readouterr().out
+
+
+def test_all_passing_run_is_green(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    passing = tmp_path / "passing.json"
+    passing.write_text(
+        '{"suites": [], "stats": {"expected": 3, "unexpected": 0, "flaky": 0}}', encoding="utf-8"
+    )
+
+    assert main([str(passing)]) == 0
     assert "Nothing to classify." in capsys.readouterr().out
+
+
+def test_broken_setup_blocks_and_explains_the_skipped_tests(capsys: pytest.CaptureFixture[str]) -> None:
+    code = main([str(FIXTURES / "setup-failed-report.json")])
+
+    out = capsys.readouterr().out
+    assert code == 1
+    assert "1 tests were skipped" in out
+    assert "broken global setup" in out
+
+
+def test_flaky_tests_are_reported_but_do_not_block(tmp_path: Path) -> None:
+    report = json.loads(MINIMAL.read_text(encoding="utf-8"))
+    comments = report["suites"][0]["suites"][0]
+    comments["specs"] = [s for s in comments["specs"] if s["tests"][0]["status"] == "flaky"]
+    only_flaky = tmp_path / "flaky.json"
+    only_flaky.write_text(json.dumps(report), encoding="utf-8")
+
+    assert main([str(only_flaky)]) == 0
+
+
+@pytest.mark.parametrize(
+    ("content", "message"),
+    [("not json", "cannot read"), ('{"results": []}', "not a Playwright JSON report")],
+)
+def test_bad_report_exits_2_with_a_clear_message(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], content: str, message: str
+) -> None:
+    bad = tmp_path / "bad.json"
+    bad.write_text(content, encoding="utf-8")
+
+    assert main([str(bad)]) == 2
+    assert message in capsys.readouterr().err
+
+
+def test_missing_report_exits_2(tmp_path: Path) -> None:
+    assert main([str(tmp_path / "nope.json")]) == 2
+
+
+def test_bad_health_probe_exits_2(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    probe = tmp_path / "health.json"
+    probe.write_text('{"status": 200}', encoding="utf-8")
+
+    assert main([str(MINIMAL), "--health", str(probe)]) == 2
+    assert "health probe" in capsys.readouterr().err
+
+
+def test_unknown_fail_on_category_exits_2() -> None:
+    assert main([str(MINIMAL), "--fail-on", "product,flaky"]) == 2

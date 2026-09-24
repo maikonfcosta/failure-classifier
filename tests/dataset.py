@@ -26,7 +26,7 @@ def cases() -> list[Case]:
         folder = DATASET / scenario
         expected: dict[str, str] = json.loads((folder / "expected.json").read_text(encoding="utf-8"))
         healthy = load_health(folder / "health.json")
-        for failure in load(folder / "report.json"):
+        for failure in load(folder / "report.json").failures:
             # Expected labels are keyed by the test's own title, without the describe() path.
             result.append(Case(scenario, failure, healthy, expected[failure.title.split(" > ")[-1]]))
     return result

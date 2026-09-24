@@ -33,16 +33,43 @@ class Failure:
     network_errors: tuple[NetworkError, ...] = field(default=())
 
 
-def load(path: Path) -> list[Failure]:
-    report = json.loads(path.read_text(encoding="utf-8"))
-    return list(_failures(report.get("suites", []), []))
+@dataclass(frozen=True)
+class Report:
+    failures: list[Failure]
+    errors: list[str]  # run-level errors, e.g. "No tests found" or a broken config
+    ran: int  # tests that actually executed (passed, failed or flaky)
+    skipped: int
+
+
+class ReportError(Exception):
+    """The file is missing or is not a Playwright JSON report."""
+
+
+def load(path: Path) -> Report:
+    try:
+        report = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as err:
+        raise ReportError(f"cannot read {path}: {err}") from err
+    if not isinstance(report, dict) or "suites" not in report:
+        raise ReportError(f"{path} is not a Playwright JSON report (no 'suites' key)")
+    stats = report.get("stats", {})
+    return Report(
+        failures=list(_failures(report["suites"], [])),
+        errors=[ANSI.sub("", e.get("message", "")) for e in report.get("errors", [])],
+        ran=sum(stats.get(k, 0) for k in ("expected", "unexpected", "flaky")),
+        skipped=stats.get("skipped", 0),
+    )
 
 
 def load_health(path: Path | None) -> bool | None:
     """True/False from the probe file, None when there is no probe."""
     if path is None:
         return None
-    return bool(json.loads(path.read_text(encoding="utf-8"))["ok"])
+    try:
+        probe = json.loads(path.read_text(encoding="utf-8"))
+        return bool(probe["ok"])
+    except (OSError, ValueError, KeyError, TypeError) as err:
+        raise ReportError(f"cannot read health probe {path}: {err!r}") from err
 
 
 def _failures(suites: list[dict[str, Any]], path: list[str]) -> Iterator[Failure]:
