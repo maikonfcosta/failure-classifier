@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -23,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATASET = ROOT / "dataset"
 HEALTH_URL = "http://localhost:4200/api/tags"
 SHELL = os.name == "nt"  # npx and docker are .cmd shims on Windows
+AUTH_HEADER = re.compile(r"(authorization: (?:Token|Bearer) )[A-Za-z0-9._~+/=-]+", re.IGNORECASE)
 
 
 def run(cmd: list[str], cwd: Path) -> None:
@@ -57,6 +59,8 @@ def playwright(suite: Path, args: list[str]) -> dict[str, Any]:
     text = json.dumps(report)
     for form in (str(suite), suite.as_posix()):
         text = text.replace(json.dumps(form)[1:-1], "<suite>")
+    # Playwright's call log echoes request headers; a test JWT is harmless but trips secret scanners.
+    text = AUTH_HEADER.sub(r"\1<redacted>", text)
     relative: dict[str, Any] = json.loads(text)
     return relative
 

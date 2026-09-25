@@ -108,6 +108,7 @@ If the dataset is wrong, the accuracy number means nothing. `tests/test_dataset.
 - Only Playwright's JSON report is supported.
 - Trace files are not read. The network fixture covers the part of the trace that matters here.
 - Diagnosing the cause of a product bug is out of scope. That is the next project, `ai-ci-triage`.
+- An early commit of the dataset holds a Conduit test JWT from Playwright's call log. It is signed with the local-only secret in the suite's `compose.yaml` and works only against the Docker app, so I left history alone; the builder now redacts `Authorization` headers.
 
 ---
 
@@ -215,3 +216,4 @@ Se a massa estiver errada, o número de acerto não vale nada. O `tests/test_dat
 - Só o relatório JSON do Playwright é suportado.
 - Os arquivos de trace não são lidos. A fixture de rede cobre a parte do trace que importa aqui.
 - Diagnosticar a causa de um bug de produto está fora do escopo. Esse é o próximo projeto, `ai-ci-triage`.
+- Um commit antigo da massa guarda um JWT de teste do Conduit, vindo do call log do Playwright. Ele é assinado com o segredo só local do `compose.yaml` da suíte e só funciona contra o app em Docker, então não reescrevi o histórico; o gerador agora mascara os headers `Authorization`.
