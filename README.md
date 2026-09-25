@@ -6,7 +6,7 @@
 
 ## English
 
-When a Playwright pipeline goes red, this tells you whether the product is broken, the environment was down, or the test is out of date. Only a product bug should block a merge. I wrote a version of this at my last job; this one is rebuilt from scratch and measured against public data.
+When a Playwright pipeline goes red, this tells you whether the product is broken, the environment was down, or the test is out of date. Only a product bug should block a merge. I wrote a version of this at work; this one is rebuilt from scratch and measured against public data.
 
 [Spec](SPEC.md) · Used by [playwright-reference-suite](https://github.com/maikonfcosta/playwright-reference-suite)
 
@@ -97,7 +97,7 @@ A test that waits for an element that was renamed, and a product bug that stoppe
 
 #### I found a false green in my own tool
 
-When Playwright finds no tests, the JSON report has zero counts and a run-level error. The first version printed "Nothing to classify" and exited 0: a pipeline that tested nothing, reported as green. That is the same failure I fixed at my last job, where a broken login setup ran zero tests and the pipeline stayed green. Empty and errored runs now always fail.
+When Playwright finds no tests, the JSON report has zero counts and a run-level error. The first version printed "Nothing to classify" and exited 0: a pipeline that tested nothing, reported as green. That is the same failure I fixed at work, where a broken login setup ran zero tests and the pipeline stayed green. Empty and errored runs now always fail.
 
 #### The dataset has tests of its own
 
@@ -114,7 +114,7 @@ If the dataset is wrong, the accuracy number means nothing. `tests/test_dataset.
 
 ## Português
 
-Quando um pipeline Playwright fica vermelho, esta ferramenta diz se o produto quebrou, se o ambiente caiu ou se o teste está desatualizado. Só bug de produto deveria barrar merge. Escrevi uma versão disso no meu último emprego; esta foi refeita do zero e medida com dados públicos.
+Quando um pipeline Playwright fica vermelho, esta ferramenta diz se o produto quebrou, se o ambiente caiu ou se o teste está desatualizado. Só bug de produto deveria barrar merge. Escrevi uma versão disso no trabalho; esta foi refeita do zero e medida com dados públicos.
 
 [Spec](SPEC.md) · Usado por [playwright-reference-suite](https://github.com/maikonfcosta/playwright-reference-suite)
 
@@ -205,7 +205,7 @@ Um teste esperando um elemento que foi renomeado e um bug de produto que parou d
 
 #### Achei um falso verde na minha própria ferramenta
 
-Quando o Playwright não acha nenhum teste, o relatório JSON vem com as contagens zeradas e um erro do run. A primeira versão imprimia "Nothing to classify" e saía com 0: um pipeline que não testou nada, reportado como verde. É a mesma falha que corrigi no meu último emprego, onde um setup de login quebrado rodava zero testes e o pipeline continuava verde. Hoje run vazio ou com erro sempre falha.
+Quando o Playwright não acha nenhum teste, o relatório JSON vem com as contagens zeradas e um erro do run. A primeira versão imprimia "Nothing to classify" e saía com 0: um pipeline que não testou nada, reportado como verde. É a mesma falha que corrigi no trabalho, onde um setup de login quebrado rodava zero testes e o pipeline continuava verde. Hoje run vazio ou com erro sempre falha.
 
 #### A massa tem testes próprios
 

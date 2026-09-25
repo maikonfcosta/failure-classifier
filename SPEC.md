@@ -4,7 +4,7 @@
 
 When a test pipeline goes red, tell whether the product is broken, the environment is down, or the test itself is out of date. Only the first one should block a merge.
 
-This is the open version of a classifier I wrote at my last job, rebuilt from scratch against public data.
+This is the open version of a classifier I wrote at work, rebuilt from scratch against public data.
 
 ## Why a naive version does not work
 
