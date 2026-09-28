@@ -6,11 +6,12 @@
 // Every test then attaches `network-errors` (JSON) when the page saw a 5xx response or a failed request.
 // failure-classifier reads that attachment to tell an environment problem from a product bug.
 
-import type { Page, TestType } from '@playwright/test';
+import type { test as baseTest } from '@playwright/test';
 
 type NetworkError = { method: string; url: string; status?: number; failure?: string };
 
-export function withNetworkErrors<T extends { page: Page }, W extends object>(base: TestType<T, W>) {
+// Takes the plain `test` from @playwright/test: a generic TestType<T, W> cannot be extended under strict TypeScript.
+export function withNetworkErrors(base: typeof baseTest) {
   return base.extend<{ recordNetworkErrors: void }>({
     recordNetworkErrors: [
       async ({ page }, use, testInfo) => {
