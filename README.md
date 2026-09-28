@@ -101,6 +101,10 @@ A test that waits for an element that was renamed, and a product bug that stoppe
 
 When Playwright finds no tests, the JSON report has zero counts and a run-level error. The first version printed "Nothing to classify" and exited 0: a pipeline that tested nothing, reported as green. That is the same failure I fixed at work, where a broken login setup ran zero tests and the pipeline stayed green. Empty and errored runs now always fail.
 
+#### The fixture I ship did not compile
+
+`playwright/network-errors.ts` was typed with a generic `TestType<T, W>`, and under strict TypeScript `.extend` cannot resolve fixtures on a generic type. This repo is Python, so nothing here type-checked it; I found out when I wired it into playwright-reference-suite, whose CI runs `tsc`. It now takes the plain `test` from `@playwright/test`, and I checked on a page that got a 503 that the attachment lands in the report and the verdict comes out as environment, high.
+
 #### The dataset has tests of its own
 
 If the dataset is wrong, the accuracy number means nothing. `tests/test_dataset.py` checks that there are at least 20 cases across the three categories, that every failure has an error message, and that only the outage cases carry network errors. Two cases I first wrote were wrong: one "product bug" was really a badly written test, and another never broke anything visible because the UI updates the favorite counter on its own.
@@ -210,6 +214,10 @@ Um teste esperando um elemento que foi renomeado e um bug de produto que parou d
 #### Achei um falso verde na minha própria ferramenta
 
 Quando o Playwright não acha nenhum teste, o relatório JSON vem com as contagens zeradas e um erro do run. A primeira versão imprimia "Nothing to classify" e saía com 0: um pipeline que não testou nada, reportado como verde. É a mesma falha que corrigi no trabalho, onde um setup de login quebrado rodava zero testes e o pipeline continuava verde. Hoje run vazio ou com erro sempre falha.
+
+#### A fixture que eu distribuo não compilava
+
+O `playwright/network-errors.ts` estava tipado com um genérico `TestType<T, W>`, e com TypeScript strict o `.extend` não resolve fixtures num tipo genérico. Este repo é Python, então nada aqui rodava o typecheck dele; descobri ao ligar no playwright-reference-suite, cujo CI roda `tsc`. Agora ele recebe o `test` puro do `@playwright/test`, e conferi numa página que recebeu 503 que o anexo chega no relatório e o veredito sai como ambiente, alta.
 
 #### A massa tem testes próprios
 
