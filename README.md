@@ -10,6 +10,8 @@ When a Playwright pipeline goes red, this tells you whether the product is broke
 
 [Spec](SPEC.md) · Used by [playwright-reference-suite](https://github.com/maikonfcosta/playwright-reference-suite)
 
+![Annotations from this repo's CI run: product failures as errors, outages and outdated tests as warnings](docs/demo.gif)
+
 ### Why the error message is not enough
 
 Before writing any rule I broke [playwright-reference-suite](https://github.com/maikonfcosta/playwright-reference-suite) on purpose and read what Playwright reported:
@@ -117,6 +119,8 @@ If the dataset is wrong, the accuracy number means nothing. `tests/test_dataset.
 Quando um pipeline Playwright fica vermelho, esta ferramenta diz se o produto quebrou, se o ambiente caiu ou se o teste está desatualizado. Só bug de produto deveria barrar merge. Escrevi uma versão disso no trabalho; esta foi refeita do zero e medida com dados públicos.
 
 [Spec](SPEC.md) · Usado por [playwright-reference-suite](https://github.com/maikonfcosta/playwright-reference-suite)
+
+![Anotações do CI deste repo: falhas de produto como erro, queda de ambiente e teste desatualizado como aviso](docs/demo.gif)
 
 ### Por que a mensagem de erro não basta
 
